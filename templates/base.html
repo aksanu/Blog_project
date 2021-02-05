@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load temp_tags%}
+{% load staticfiles%}
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>
+		{% block title %}
+		
+		{% endblock %}
+	</title>
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'base.css'%}"></head>
+<body>
+	<ul class="nav nav-tabs nav-justified">
+		<li role="presentation" ><a href="{%url 'list_display'%}">Home</a></li>
+		<li role="presentation"><a href="{%url 'create-post' %}">Create Post</a></li>
+		
+		{%if request.user.is_authenticated%}
+			<li role="presentation" class='top'><a href="{%url 'logout' %}">logout</a></li>
+		{%else%}
+			<li role="presentation" class='top'><a href="{%url 'login' %}">Login</a></li>
+			<li role="presentation" class='top'><a href="{%url 'registers' %}">Signup</a></li>
+		{%endif%}
+	</ul>
+
+	{% block head%}
+		<div class="header">
+			<div class="centr">
+				<h2>while(noSuccess):</h2>
+					<h2>&nbsp&nbsp&nbsp&nbsp print('Try Again')</h2>
+				<h2>if (Dead):</h2>
+					<h2>&nbsp&nbsp&nbsp&nbsp Break </h2>
+				
+			</div>
+		</div>
+	{%endblock%}
+
+
+	<div class="row">
+		<div class="main col-md-9 ">
+			{% block content%}
+			<div class="col-md-3 left ">
+			<h3 id='cent'><mark>Recent Post</mark></h3>
+			{%latest_post%}
+		</div>
+	</div>
+
+			{% endblock%}
+		</div>
+		
+
+	
+
+
+	
+
+
+	<script src="{%static 'captcha.js'%}" type="text/javascript" charset="utf-8" async defer></script>
+</body>
+</html>

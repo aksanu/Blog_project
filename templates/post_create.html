@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block head%}{%endblock%}	
+
+
+{%block content%}
+		<h1 align="center">Create A New Post</h1><br>
+	
+	<form method="POST" accept-charset="utf-8" enctype="multipart/form-data"> 
+		{%csrf_token%}
+		<div class="form-group">
+		    <label for="exampleInputEmail1">Title</label>
+		    <input type="test" class="form-control" id="exampleInputEmail1" name="title" aria-describedby="emailHelp" placeholder="Enter Name">
+		    
+	  	</div>
+		Image:<input type="File" name="image">
+		<div class="form-group">
+     		<label class="control-label " for="company">Choose A Status</label><br>
+      		<div class="col-sm-6 col-md-4">
+		        <select id="status" name="status" class="form-control">
+		          <option value="draft">draft</option>
+		  			<option value="published">published</option>
+		        </select> 
+      		</div>
+    	</div>
+		
+  		<br>
+  		<div class="form-group">
+		    <label for="exampleFormControlTextarea1">Description</label>
+		    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="desc"></textarea>
+		 </div>
+		
+  		<div class="form-group">
+		    <label for="exampleInputEmail1">Tag1</label>
+		    <input type="text" class="form-control" id="exampleInputEmail1" name="tag1" aria-describedby="emailHelp" placeholder="Enter related tag 1">
+		    
+	  	</div>
+	  	<div class="form-group">
+		    <label for="exampleInputEmail1">Tag2</label>
+		    <input type="text" class="form-control" id="exampleInputEmail1" name="tag2" aria-describedby="emailHelp" placeholder="Enter related tag 2">
+		    
+	  	</div>
+	  	<div class="form-group">
+		    <label for="exampleInputEmail1">Tag3</label>
+		    <input type="text" class="form-control" id="exampleInputEmail1" name="tag3" aria-describedby="emailHelp" placeholder="Enter related tag 3">
+		    
+	  	</div>
+  		
+		<input type="submit" value="Submit" class='btn btn-primary btn-md'>
+		
+		
+	</form>
+
+
+
+{%endblock%}

@@ -1,0 +1,6 @@
+<ul class="list-group">
+	{% for latest in latest %}
+	<li><a href="{{latest.get_absolute_url}}" title="" class="list-group-item">{{latest.title}}</a></li>
+
+	{%endfor%}
+</ul>
